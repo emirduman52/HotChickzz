@@ -295,16 +295,79 @@ class Component extends DCLogic {
       if (a) this.setNav(false);
     };
     document.addEventListener('click', this.onNavClick);
+    this.onResize = () => this.syncNav();
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('orientationchange', this.onResize);
+    this.setNav(false);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.onScroll);
     document.removeEventListener('click', this.onNavClick);
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('orientationchange', this.onResize);
   }
   setNav(open) {
     const nav = document.querySelector('[data-nav]');
     const btn = document.querySelector('[data-burger]');
     if (nav) nav.setAttribute('data-open', open ? 'true' : 'false');
     if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    this.syncNav();
+  }
+  /* Die Media Queries greifen auf der Live-Seite nicht zuverlaessig, darum
+     wird der mobile Zustand hier direkt als Inline-Style gesetzt. */
+  syncNav() {
+    const nav = document.querySelector('[data-nav]');
+    const btn = document.querySelector('[data-burger]');
+    const badge = document.querySelector('[data-open-badge]');
+    if (!nav || !btn) return;
+    const w = window.innerWidth || document.documentElement.clientWidth;
+    const mobile = w <= 820;
+    const open = nav.getAttribute('data-open') === 'true';
+    const s = nav.style;
+    btn.style.display = mobile ? 'flex' : 'none';
+    btn.style.marginLeft = 'auto';
+    if (badge) badge.style.display = w <= 620 ? 'none' : 'inline-flex';
+    nav.querySelectorAll('a').forEach((a) => {
+      a.style.padding = mobile ? '14px 16px' : '';
+      a.style.fontSize = mobile ? '17px' : '';
+    });
+    if (!mobile) {
+      s.display = 'flex';
+      s.position = 'static';
+      s.flexDirection = 'row';
+      s.flexWrap = 'wrap';
+      s.alignItems = 'center';
+      s.justifyContent = 'flex-end';
+      s.gap = '4px 6px';
+      s.marginLeft = 'auto';
+      s.background = 'transparent';
+      s.padding = '0';
+      s.borderTop = 'none';
+      s.boxShadow = 'none';
+      return;
+    }
+    s.marginLeft = '0';
+    if (!open) {
+      s.display = 'none';
+      return;
+    }
+    s.display = 'flex';
+    s.position = 'absolute';
+    s.top = '100%';
+    s.left = '0';
+    s.right = '0';
+    s.width = 'auto';
+    s.maxWidth = '100%';
+    s.boxSizing = 'border-box';
+    s.flexDirection = 'column';
+    s.flexWrap = 'nowrap';
+    s.alignItems = 'stretch';
+    s.justifyContent = 'flex-start';
+    s.gap = '4px';
+    s.background = '#FDF4E3';
+    s.padding = '14px';
+    s.borderTop = '4px solid #14263F';
+    s.boxShadow = '0 14px 0 rgba(20,38,63,.15)';
   }
   applyFilter(cat) {
     document.querySelectorAll('[data-cat]').forEach((el) => {
