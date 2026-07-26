@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HOT CHICKZZZ — Chick It Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #55C3CB; font-family: 'Poppins', system-ui, sans-serif; color: #14263F; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #D93D3D; text-decoration: none; }
+  a:hover { color: #F5821F; }
+  :focus-visible { outline: 3px solid #14263F; outline-offset: 3px; border-radius: 4px; }
+  @keyframes bob { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-14px) rotate(2deg); } }
+  @keyframes wiggle { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+  [data-burger] { display: none; }
+  img, iframe { max-width: 100%; }
+  @media (max-width: 820px) {
+    [data-nav] { display: none; }
+    [data-nav][data-open="true"] { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; background: #FDF4E3; padding: 14px; border-top: 4px solid #14263F; box-shadow: 0 14px 0 rgba(20,38,63,.15); }
+    [data-nav][data-open="true"] a { padding: 14px 16px; }
+    [data-burger] { display: flex; margin-left: auto; }
+  }
+  @media (max-width: 560px) {
+    [data-open-badge] { display: none; }
+  }
+  @media (max-width: 380px) {
+    [data-logo] img { width: 44px; height: 44px; }
+    [data-logo] span { font-size: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; }
+  }
+</style>
+</helmet>
+
+<header id="top" data-header="" style="position: sticky; top: 0; z-index: 50; background: #FDF4E3; border-bottom: 4px solid #14263F;">
+  <div style="height: 14px; background-image: repeating-conic-gradient(#F5821F 0% 25%, #FDF4E3 0% 50%); background-size: 28px 28px;"></div>
+  <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 16px;">
+    <a href="#top" data-logo="" style="display: flex; align-items: center; gap: 10px; flex: 0 0 auto;">
+      <img src="uploads/pasted-1785083191494-0.png" alt="Hot Chickzzz rooster logo" style="width: 52px; height: 52px; object-fit: cover; border-radius: 14px; border: 3px solid #14263F;" />
+      <span style="font-family: 'Bungee', sans-serif; font-size: 19px; line-height: 1; color: #F5821F; letter-spacing: .5px; text-shadow: 2px 2px 0 #14263F;">HOT<br />CHICKZZZ</span>
+    </a>
+    <nav data-nav="" data-open="false" aria-label="Main" style="margin-left: auto; display: flex; align-items: center; gap: 6px;">
+      <a href="#menu" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; color: #14263F; padding: 10px 16px; border-radius: 999px;" style-hover="background: #F5821F; color: #FDF4E3;">MENÜ</a>
+      <a href="#location" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; color: #14263F; padding: 10px 16px; border-radius: 999px;" style-hover="background: #F5821F; color: #FDF4E3;">STANDORT</a>
+      <a href="#contact" style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; color: #14263F; padding: 10px 16px; border-radius: 999px;" style-hover="background: #F5821F; color: #FDF4E3;">KONTAKT</a>
+    </nav>
+    <span data-open-badge="" style="display: inline-flex; align-items: center; gap: 8px; background: #D93D3D; color: #FDF4E3; font-family: 'Bungee', sans-serif; font-size: 13px; letter-spacing: .5px; padding: 9px 14px; border-radius: 999px; border: 3px solid #14263F; transform: rotate(-3deg); flex: 0 0 auto;">
+      <span style="width: 9px; height: 9px; border-radius: 50%; background: #7CFF9E; box-shadow: 0 0 0 3px rgba(124,255,158,.3);"></span>WE ARE OPEN</span>
+    <button data-burger="" type="button" aria-label="Toggle menu" aria-expanded="false" onClick="{{ toggleNav }}" style="width: 46px; height: 46px; align-items: center; justify-content: center; flex-direction: column; gap: 5px; background: #F5821F; border: 3px solid #14263F; border-radius: 12px; cursor: pointer; padding: 0; flex: 0 0 auto;">
+      <span style="display: block; width: 20px; height: 3px; background: #14263F; border-radius: 2px;"></span>
+      <span style="display: block; width: 20px; height: 3px; background: #14263F; border-radius: 2px;"></span>
+      <span style="display: block; width: 20px; height: 3px; background: #14263F; border-radius: 2px;"></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section aria-label="Hero" style="position: relative; overflow: hidden; background: #55C3CB; padding: clamp(36px, 6vw, 80px) 20px clamp(60px, 8vw, 110px);">
+    <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: clamp(28px, 5vw, 64px); align-items: center;">
+      <div>
+        <span style="display: inline-block; background: #FDF4E3; border: 3px solid #14263F; color: #D93D3D; font-family: 'Bungee', sans-serif; font-size: 14px; padding: 8px 16px; border-radius: 999px; transform: rotate(-2deg); margin-bottom: 22px;">FRANKFURT · STREETFOOD</span>
+        <h1 style="font-family: 'Bungee', sans-serif; font-size: clamp(46px, 9vw, 104px); line-height: .92; margin: 0 0 18px; color: #F5821F; text-shadow: 5px 5px 0 #14263F; letter-spacing: 1px;">CHICK<br />IT OUT</h1>
+        <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: clamp(21px, 3vw, 30px); line-height: 1.25; margin: 0 0 12px; color: #14263F; max-width: 22ch; text-wrap: pretty;">Crispy. Spicy. Chickzzz.</p>
+        <p style="font-size: 17px; line-height: 1.6; margin: 0 0 32px; color: #0E3B44; max-width: 40ch; text-wrap: pretty;">Handpanierte Filets, feurig glasierte Wingzzz und Skinny Fries — laut serviert, heiß serviert.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px;">
+          <a href="#menu" style="display: inline-block; background: #D93D3D; color: #FDF4E3; font-family: 'Bungee', sans-serif; font-size: 18px; padding: 17px 32px; border-radius: 999px; border: 4px solid #14263F; box-shadow: 0 7px 0 #14263F;" style-hover="transform: translateY(3px); box-shadow: 0 4px 0 #14263F; color: #FDF4E3;">ZUM MENÜ</a>
+          <a href="#location" style="display: inline-block; background: #FDF4E3; color: #14263F; font-family: 'Bungee', sans-serif; font-size: 18px; padding: 17px 32px; border-radius: 999px; border: 4px solid #14263F; box-shadow: 0 7px 0 #14263F;" style-hover="transform: translateY(3px); box-shadow: 0 4px 0 #14263F; color: #D93D3D;">FINDE UNS</a>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center;">
+        <img src="uploads/pasted-1785083191494-0.png" alt="Hot Chickzzz cartoon rooster logo" style="width: min(100%, 500px); border-radius: 36px; border: 6px solid #14263F; box-shadow: 14px 14px 0 rgba(20,38,63,.35); animation: bob 5s ease-in-out infinite;" />
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 18px; background-image: repeating-conic-gradient(#F5821F 0% 25%, #FDF4E3 0% 50%); background-size: 36px 36px; border-top: 4px solid #14263F; border-bottom: 4px solid #14263F;"></div>
+
+  <section id="menu" style="background: #FDF4E3; padding: clamp(48px, 7vw, 90px) 20px;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <div style="text-align: center; margin-bottom: 34px;">
+        <h2 style="font-family: 'Bungee', sans-serif; font-size: clamp(38px, 6.5vw, 76px); line-height: 1; margin: 0 0 12px; color: #D93D3D; text-shadow: 4px 4px 0 #14263F;">DAS MENÜ</h2>
+        <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 20px; color: #14263F; margin: 0;">Alles im Hot Chickzzz Style!</p>
+      </div>
+
+      <div role="group" aria-label="Filter menu" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 38px;">
+        <button type="button" data-filter="all" onClick="{{ filterAll }}" style="font-family: 'Bungee', sans-serif; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 3px solid #14263F; background: #14263F; color: #FDF4E3; cursor: pointer; box-shadow: 0 4px 0 #14263F;">ALLES</button>
+        <button type="button" data-filter="bites" onClick="{{ filterBites }}" style="font-family: 'Bungee', sans-serif; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 3px solid #14263F; background: #FDF4E3; color: #14263F; cursor: pointer; box-shadow: 0 4px 0 #14263F;">BITES</button>
+        <button type="button" data-filter="wings" onClick="{{ filterWings }}" style="font-family: 'Bungee', sans-serif; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 3px solid #14263F; background: #FDF4E3; color: #14263F; cursor: pointer; box-shadow: 0 4px 0 #14263F;">WINGZZZ</button>
+        <button type="button" data-filter="burgers" onClick="{{ filterBurgers }}" style="font-family: 'Bungee', sans-serif; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 3px solid #14263F; background: #FDF4E3; color: #14263F; cursor: pointer; box-shadow: 0 4px 0 #14263F;">BURGERZZZ</button>
+        <button type="button" data-filter="sides" onClick="{{ filterSides }}" style="font-family: 'Bungee', sans-serif; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 3px solid #14263F; background: #FDF4E3; color: #14263F; cursor: pointer; box-shadow: 0 4px 0 #14263F;">SIDES &amp; SAUCEN</button>
+        <button type="button" data-filter="drinks" onClick="{{ filterDrinks }}" style="font-family: 'Bungee', sans-serif; font-size: 14px; padding: 12px 22px; border-radius: 999px; border: 3px solid #14263F; background: #FDF4E3; color: #14263F; cursor: pointer; box-shadow: 0 4px 0 #14263F;">GETRÄNKE</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 26px; align-items: start;">
+
+        <article data-cat="bites" style="background: #4A90E2; border: 5px solid #14263F; border-radius: 28px; padding: 28px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 32px; line-height: 1.05; margin: 0 0 4px; color: #FDF4E3; text-shadow: 3px 3px 0 #14263F;">CRISPY BITES</h3>
+          <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 18px; color: #14263F;">Paniertes Hähnchenfilet</p>
+          <ul style="list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px;">
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #FDF4E3;"><span>3 Stück</span><span style="flex: 1; border-bottom: 2px dotted rgba(253,244,227,.6);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #FFE08A;">€8,80</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #FDF4E3;"><span>5 Stück</span><span style="flex: 1; border-bottom: 2px dotted rgba(253,244,227,.6);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #FFE08A;">€11,80</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #FDF4E3;"><span>7 Stück</span><span style="flex: 1; border-bottom: 2px dotted rgba(253,244,227,.6);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #FFE08A;">€14,80</span></li>
+          </ul>
+          <p style="font-size: 14px; font-style: italic; margin: 0; color: #EAF3FF;">*Serviert mit Skinny Fries und Signature Sauce im Hot Chickzzz Style</p>
+        </article>
+
+        <article data-cat="wings" style="background: #FDF4E3; border: 5px solid #14263F; border-radius: 28px; padding: 28px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 32px; line-height: 1.05; margin: 0 0 4px; color: #D93D3D; text-shadow: 3px 3px 0 #14263F;">CHICKZZZ WINGZZZ</h3>
+          <p style="font-family: 'Baloo 2', sans-serif; font-weight: 700; font-size: 18px; margin: 0 0 18px; color: #14263F;">Hähnchenflügel mit feuriger Würzmischung</p>
+          <ul style="list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 10px;">
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>3 Stück</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€6,80</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>5 Stück</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€8,80</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>7 Stück</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€10,80</span></li>
+          </ul>
+          <p style="font-size: 14px; font-style: italic; margin: 0; color: #4A5A6E;">*Serviert mit Skinny Fries und Signature Sauce im Hot Chickzzz Style</p>
+        </article>
+
+        <article data-cat="burgers" style="background: #FDF4E3; border: 5px solid #14263F; border-radius: 28px; padding: 28px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 32px; line-height: 1.05; margin: 0 0 18px; color: #F5821F; text-shadow: 3px 3px 0 #14263F;">BURGER</h3>
+          <div style="display: grid; gap: 18px;">
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 10px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 21px; color: #14263F;">Purple Velvet</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; color: #D93D3D;">€11,80</span></div>
+              <p style="font-size: 15px; line-height: 1.5; margin: 6px 0 0; color: #4A5A6E;">Knusprig paniertes Hähnchenschnitzel in würziger Marinade, cremiger Rotkohl-Coleslaw und Lemon Pepper Mayonnaise.</p>
+            </div>
+            <div>
+              <div style="display: flex; align-items: baseline; gap: 10px;"><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 21px; color: #14263F;">Hot Chickzzz</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; color: #D93D3D;">€10,80</span></div>
+              <p style="font-size: 15px; line-height: 1.5; margin: 6px 0 0; color: #4A5A6E;">Mariniertes Hähnchenschnitzel in scharfer Panade, cremiger Joghurt-Mayo-Salat und eine scharfe Soße.</p>
+            </div>
+          </div>
+          <p style="font-size: 14px; font-style: italic; margin: 16px 0 0; color: #4A5A6E;">*Serviert mit Skinny Fries und Signature Sauce im Hot Chickzzz Style</p>
+        </article>
+
+        <article data-cat="bites" style="background: #14263F; border: 5px solid #14263F; border-radius: 28px; padding: 28px; box-shadow: 10px 10px 0 rgba(20,38,63,.3); text-align: center;">
+          <div style="border: 4px solid #F5821F; border-radius: 18px; padding: 24px 18px;">
+            <h3 style="font-family: 'Bungee', sans-serif; font-size: 40px; line-height: 1; margin: 0 0 10px; color: #FFE08A;">SPICY POPS</h3>
+            <p style="font-family: 'Bungee', sans-serif; font-size: 30px; margin: 0 0 14px; color: #F5821F;">€7,80</p>
+            <p style="font-size: 16px; line-height: 1.55; margin: 0; color: #CFE2F5;">Zartes Hähnchenfilet im knusprigen Mantel, verfeinert mit feuriger Soße und Skinny Fries.</p>
+          </div>
+        </article>
+
+        <article data-cat="sides" style="background: #FDF4E3; border: 5px solid #14263F; border-radius: 28px; padding: 28px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 30px; line-height: 1.05; margin: 0 0 18px; color: #4A90E2; text-shadow: 3px 3px 0 #14263F;">SIDE CHICKZZZ</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px;">
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 19px; font-weight: 500; color: #14263F;"><span>Skinny Fries</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€2,80</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 19px; font-weight: 500; color: #14263F;"><span>Red Coleslaw</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€2,50</span></li>
+          </ul>
+        </article>
+
+        <article data-cat="sides" style="background: #D93D3D; border: 5px solid #14263F; border-radius: 60px 28px 60px 28px; padding: 30px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+            <h3 style="font-family: 'Bungee', sans-serif; font-size: 32px; line-height: 1; margin: 0; color: #FDF4E3; text-shadow: 3px 3px 0 #14263F;">SAUCEN</h3>
+            <p style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 17px; margin: 0; color: #FFE08A;">S €1,50 · M €2,50</p>
+          </div>
+          <ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 10px; font-size: 17px; color: #FDF4E3; font-weight: 500;">
+            <li>Lemon Pepper Mayo</li>
+            <li>Fire Bird</li>
+            <li>Sweet Chilli Lime</li>
+            <li>Truffle Mayo</li>
+            <li>Hot Chickzzz</li>
+            <li>White Sauce</li>
+          </ul>
+        </article>
+
+        <article data-cat="drinks" style="background: #FDF4E3; border: 5px solid #14263F; border-radius: 28px; padding: 28px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 30px; line-height: 1.05; margin: 0 0 18px; color: #4A90E2; text-shadow: 3px 3px 0 #14263F;">GETRÄNKE</h3>
+          <ul style="list-style: none; margin: 0; padding: 0; display: grid; gap: 12px;">
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>Cola / Zero, Fanta, Sprite</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€3,00</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>Mezzo Mix</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€3,50</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>Eistee</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€3,50</span></li>
+            <li style="display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 500; color: #14263F;"><span>Wasser</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span style="font-family: 'Baloo 2', sans-serif; font-weight: 800; color: #D93D3D;">€2,80</span></li>
+          </ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="location" style="background: #55C3CB; padding: clamp(48px, 7vw, 90px) 20px; border-top: 4px solid #14263F;">
+    <div style="max-width: 1240px; margin: 0 auto;">
+      <h2 style="font-family: 'Bungee', sans-serif; font-size: clamp(36px, 6vw, 68px); line-height: 1; margin: 0 0 34px; color: #FDF4E3; text-shadow: 4px 4px 0 #14263F; text-align: center;">FIND THE CHICKZZZ</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 26px; align-items: stretch;">
+        <div style="background: #FDF4E3; border: 5px solid #14263F; border-radius: 28px; padding: 30px; box-shadow: 10px 10px 0 rgba(20,38,63,.3);">
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 24px; margin: 0 0 8px; color: #D93D3D;">ADRESSE</h3>
+          <p style="font-size: 20px; font-weight: 600; margin: 0 0 26px; color: #14263F;">Leipziger Str. 85<br />60487 Frankfurt am Main</p>
+          <h3 style="font-family: 'Bungee', sans-serif; font-size: 24px; margin: 0 0 12px; color: #D93D3D;">ÖFFNUNGSZEITEN</h3>
+          <ul style="list-style: none; margin: 0 0 28px; padding: 0; display: grid; gap: 9px;">
+            <li style="display: flex; gap: 10px; align-items: baseline; font-size: 17px; color: #14263F;"><span style="font-weight: 600;">Mo – Do</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span>12:00 – 22:00</span></li>
+            <li style="display: flex; gap: 10px; align-items: baseline; font-size: 17px; color: #14263F;"><span style="font-weight: 600;">Freitag</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span>12:00 – 23:00</span></li>
+            <li style="display: flex; gap: 10px; align-items: baseline; font-size: 17px; color: #14263F;"><span style="font-weight: 600;">Samstag</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span>13:00 – 23:00</span></li>
+            <li style="display: flex; gap: 10px; align-items: baseline; font-size: 17px; color: #14263F;"><span style="font-weight: 600;">Sonntag</span><span style="flex: 1; border-bottom: 2px dotted rgba(20,38,63,.35);"></span><span>13:00 – 22:00</span></li>
+          </ul>
+          <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Leipziger+Str.+85,+60487+Frankfurt+am+Main" target="_blank" rel="noopener" style="display: inline-block; background: #F5821F; color: #14263F; font-family: 'Bungee', sans-serif; font-size: 16px; padding: 15px 28px; border-radius: 999px; border: 4px solid #14263F; box-shadow: 0 7px 0 #14263F;" style-hover="transform: translateY(3px); box-shadow: 0 4px 0 #14263F; color: #FDF4E3;">ROUTE PLANEN</a>
+        </div>
+        <div style="border: 5px solid #14263F; border-radius: 28px; overflow: hidden; box-shadow: 10px 10px 0 rgba(20,38,63,.3); min-height: 380px; background: #FDF4E3;">
+          <iframe title="Map showing Hot Chickzzz, Leipziger Str. 85, Frankfurt" src="https://www.openstreetmap.org/export/embed.html?bbox=8.6320%2C50.1197%2C8.6520%2C50.1277&amp;layer=mapnik&amp;marker=50.123728%2C8.641962" style="width: 100%; height: 100%; min-height: 380px; border: 0; display: block;" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height: 18px; background-image: repeating-conic-gradient(#F5821F 0% 25%, #FDF4E3 0% 50%); background-size: 36px 36px; border-top: 4px solid #14263F; border-bottom: 4px solid #14263F;"></div>
+</main>
+
+<footer id="contact" style="background: #14263F; color: #FDF4E3; padding: clamp(44px, 6vw, 76px) 20px 28px;">
+  <div style="max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 34px;">
+    <div>
+      <img src="uploads/pasted-1785083191494-0.png" alt="Hot Chickzzz logo" style="width: 110px; border-radius: 20px; border: 4px solid #FDF4E3; display: block; margin-bottom: 16px;" />
+      <p style="font-family: 'Bungee', sans-serif; font-size: 22px; margin: 0; color: #F5821F;">CHICK IT OUT</p>
+    </div>
+    <div>
+      <h3 style="font-family: 'Bungee', sans-serif; font-size: 18px; margin: 0 0 14px; color: #FFE08A;">ZEITEN</h3>
+      <p style="font-size: 16px; line-height: 1.7; margin: 0; color: #CFE2F5;">Mo–Do 12–22<br />Fr 12–23<br />Sa 13–23 · So 13–22</p>
+    </div>
+    <div>
+      <h3 style="font-family: 'Bungee', sans-serif; font-size: 18px; margin: 0 0 14px; color: #FFE08A;">BESUCH</h3>
+      <p style="font-size: 16px; line-height: 1.7; margin: 0 0 10px; color: #CFE2F5;">Leipziger Str. 85<br />60487 Frankfurt</p>
+      <a href="tel:+491725699498" style="font-size: 16px; color: #F5821F;">0172 5699498</a>
+    </div>
+    <div>
+      <h3 style="font-family: 'Bungee', sans-serif; font-size: 18px; margin: 0 0 14px; color: #FFE08A;">FOLGEN</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <a href="#contact" aria-label="Instagram" style="display: inline-flex; align-items: center; justify-content: center; background: #F5821F; color: #14263F; font-family: 'Bungee', sans-serif; font-size: 13px; padding: 11px 18px; border-radius: 999px; border: 3px solid #FDF4E3;" style-hover="background: #D93D3D; color: #FDF4E3;">INSTA</a>
+        <a href="#contact" aria-label="Facebook" style="display: inline-flex; align-items: center; justify-content: center; background: #F5821F; color: #14263F; font-family: 'Bungee', sans-serif; font-size: 13px; padding: 11px 18px; border-radius: 999px; border: 3px solid #FDF4E3;" style-hover="background: #D93D3D; color: #FDF4E3;">FB</a>
+        <a href="#contact" aria-label="TikTok" style="display: inline-flex; align-items: center; justify-content: center; background: #F5821F; color: #14263F; font-family: 'Bungee', sans-serif; font-size: 13px; padding: 11px 18px; border-radius: 999px; border: 3px solid #FDF4E3;" style-hover="background: #D93D3D; color: #FDF4E3;">TIKTOK</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width: 1240px; margin: 40px auto 0; padding-top: 20px; border-top: 2px solid rgba(253,244,227,.25); display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; justify-content: space-between;">
+    <p style="font-size: 14px; color: #9FB4CC; margin: 0;">© 2026 Hot Chickzzz · Frankfurt am Main · Alle Rechte vorbehalten.</p>
+    <nav aria-label="Rechtliches" style="display: flex; flex-wrap: wrap; align-items: center; gap: 18px;">
+      <a href="#contact" style="font-size: 14px; color: #CFE2F5;" style-hover="color: #F5821F;">Impressum</a>
+      <a href="#contact" style="font-size: 14px; color: #CFE2F5;" style-hover="color: #F5821F;">Datenschutz</a>
+      <span style="font-size: 14px; color: #9FB4CC;">Designed by <a href="https://amano.agency" target="_blank" rel="noopener" style="color: #F5821F; font-weight: 600;" style-hover="color: #FFE08A;">Amano Agency</a></span>
+    </nav>
+  </div>
+</footer>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    this.onScroll = () => {
+      const h = document.querySelector('[data-header]');
+      if (!h) return;
+      h.style.boxShadow = window.scrollY > 24 ? '0 10px 0 rgba(20,38,63,.22)' : 'none';
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+    this.onScroll();
+    this.onNavClick = (e) => {
+      const a = e.target.closest('[data-nav] a');
+      if (a) this.setNav(false);
+    };
+    document.addEventListener('click', this.onNavClick);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScroll);
+    document.removeEventListener('click', this.onNavClick);
+  }
+  setNav(open) {
+    const nav = document.querySelector('[data-nav]');
+    const btn = document.querySelector('[data-burger]');
+    if (nav) nav.setAttribute('data-open', open ? 'true' : 'false');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  applyFilter(cat) {
+    document.querySelectorAll('[data-cat]').forEach((el) => {
+      el.style.display = (cat === 'all' || el.dataset.cat === cat) ? '' : 'none';
+    });
+    document.querySelectorAll('[data-filter]').forEach((b) => {
+      const on = b.dataset.filter === cat;
+      b.style.background = on ? '#14263F' : '#FDF4E3';
+      b.style.color = on ? '#FDF4E3' : '#14263F';
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  renderVals() {
+    return {
+      toggleNav: () => {
+        const nav = document.querySelector('[data-nav]');
+        this.setNav(!nav || nav.getAttribute('data-open') !== 'true');
+      },
+      filterAll: () => this.applyFilter('all'),
+      filterBites: () => this.applyFilter('bites'),
+      filterWings: () => this.applyFilter('wings'),
+      filterBurgers: () => this.applyFilter('burgers'),
+      filterSides: () => this.applyFilter('sides'),
+      filterDrinks: () => this.applyFilter('drinks'),
+    };
+  }
+}
+</script>
+</body>
+</html>
