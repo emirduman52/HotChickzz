@@ -25,6 +25,7 @@ cp "Hot Chickzzz.dc.html" index.html
 
 - Sticky Header mit Burger-Menü unter 820px
 - Menü mit Kategorie-Filter (Bites, Wingzzz, Burgerzzz, Sides & Saucen, Getränke)
+- Bestell-Sektion mit Direktlinks zu Wolt und Uber Eats
 - Standort mit OpenStreetMap-Einbettung und Routen-Link
 - Vollständig responsiv (Mobile bis Desktop), `prefers-reduced-motion` respektiert
 
