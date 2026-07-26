@@ -15,7 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   html { scroll-behavior: smooth; }
-  body { margin: 0; background: #55C3CB; font-family: 'Poppins', system-ui, sans-serif; color: #14263F; -webkit-font-smoothing: antialiased; }
+  body { margin: 0; background: #55C3CB; font-family: 'Poppins', system-ui, sans-serif; color: #14263F; -webkit-font-smoothing: antialiased; overflow-x: clip; }
   * { box-sizing: border-box; }
   a { color: #D93D3D; text-decoration: none; }
   a:hover { color: #F5821F; }
@@ -24,18 +24,33 @@
   @keyframes wiggle { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
   [data-burger] { display: none; }
   img, iframe { max-width: 100%; }
-  @media (max-width: 820px) {
-    [data-nav] { display: none; }
-    [data-nav][data-open="true"] { display: flex; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; background: #FDF4E3; padding: 14px; border-top: 4px solid #14263F; box-shadow: 0 14px 0 rgba(20,38,63,.15); }
-    [data-nav][data-open="true"] a { padding: 14px 16px; }
-    [data-burger] { display: flex; margin-left: auto; }
+  [data-header] { max-width: 100%; overflow-x: clip; }
+  [data-header-row] { min-width: 0; flex-wrap: nowrap; }
+  [data-logo] { min-width: 0; }
+  [data-logo] img { flex: 0 0 auto; }
+  [data-logo] span { white-space: nowrap; }
+  [data-open-badge] { white-space: nowrap; }
+  @media (max-width: 980px) {
+    [data-header-row] { gap: 10px; }
+    [data-nav] { gap: 2px; }
+    [data-nav] a { font-size: 15px; padding: 9px 11px; }
   }
-  @media (max-width: 560px) {
+  @media (max-width: 820px) {
+    [data-header-row] { padding: 10px 14px; gap: 10px; }
+    [data-nav] { display: none; }
+    [data-nav][data-open="true"] { display: flex; position: absolute; top: 100%; left: 0; right: 0; width: auto; max-width: 100%; flex-direction: column; align-items: stretch; gap: 4px; background: #FDF4E3; padding: 14px; border-top: 4px solid #14263F; box-shadow: 0 14px 0 rgba(20,38,63,.15); }
+    [data-nav][data-open="true"] a { padding: 14px 16px; font-size: 17px; }
+    [data-burger] { display: flex; margin-left: auto; }
+    [data-open-badge] { transform: none; font-size: 12px; padding: 8px 11px; }
+  }
+  @media (max-width: 620px) {
     [data-open-badge] { display: none; }
   }
-  @media (max-width: 380px) {
-    [data-logo] img { width: 44px; height: 44px; }
-    [data-logo] span { font-size: 16px; }
+  @media (max-width: 400px) {
+    [data-header-row] { padding: 8px 12px; gap: 8px; }
+    [data-logo] img { width: 42px; height: 42px; border-width: 2px; border-radius: 11px; }
+    [data-logo] span { font-size: 15px; }
+    [data-burger] { width: 42px; height: 42px; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -46,8 +61,8 @@
 
 <header id="top" data-header="" style="position: sticky; top: 0; z-index: 50; background: #FDF4E3; border-bottom: 4px solid #14263F;">
   <div style="height: 14px; background-image: repeating-conic-gradient(#F5821F 0% 25%, #FDF4E3 0% 50%); background-size: 28px 28px;"></div>
-  <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 16px;">
-    <a href="#top" data-logo="" style="display: flex; align-items: center; gap: 10px; flex: 0 0 auto;">
+  <div data-header-row="" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 16px;">
+    <a href="#top" data-logo="" style="display: flex; align-items: center; gap: 10px; flex: 0 1 auto; min-width: 0;">
       <img src="uploads/pasted-1785083191494-0.png" alt="Hot Chickzzz rooster logo" style="width: 52px; height: 52px; object-fit: cover; border-radius: 14px; border: 3px solid #14263F;" />
       <span style="font-family: 'Bungee', sans-serif; font-size: 19px; line-height: 1; color: #F5821F; letter-spacing: .5px; text-shadow: 2px 2px 0 #14263F;">HOT<br />CHICKZZZ</span>
     </a>
